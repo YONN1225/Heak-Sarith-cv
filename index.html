@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HEAK SARETH | Professional Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Global Reset & Base Styles */
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Old Template Background */
+      color: #2c3e50; /* Old Template Dark Color */
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s;
+    }
+
+    /* Header Section */
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 5px solid white; /* Old Template Border */
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #2c3e50;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+      font-weight: 400;
+      margin-bottom: 25px;
+    }
+
+    .cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #1abc9c, #16a085); /* Old Template Button Color */
+      color: white;
+      border-radius: 30px; /* Old Template Button Style */
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .cv-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(26, 188, 156, 0.4);
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(44, 62, 80, 0.95); /* Old Template Nav Background */
+      padding: 15px;
+      text-align: center;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #1abc9c; /* Old Template Teal Color */
+    }
+
+    /* Main Container & Sections */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: white;
+      padding: 40px;
+      border-radius: 16px; /* Old Template Corner Style */
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      border-left: 5px solid #1abc9c; /* Accent Line with Old Teal Color */
+    }
+
+    section h2 {
+      margin-bottom: 25px;
+      color: #1abc9c; /* Old Template Header Color */
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    section h2 i {
+      color: #1abc9c;
+      font-size: 1.5rem;
+    }
+
+    /* About Me */
+    #about p {
+      color: #34495e;
+      font-size: 1.05rem;
+    }
+
+    /* Timelines & Lists (Education, Experience & Projects) */
+    .timeline-item {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #1abc9c;
+    }
+
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 22px;
+      width: 2px;
+      height: calc(100% + 15px);
+      background: #e2e8f0;
+    }
+
+    .timeline-item:last-child::after {
+      display: none;
+    }
+
+    .timeline-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .timeline-subtitle {
+      font-size: 0.95rem;
+      color: #7f8c8d;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .timeline-desc {
+      color: #34495e;
+    }
+
+    .timeline-desc ul {
+      margin-left: 20px;
+      margin-top: 5px;
+    }
+
+    .timeline-desc ul li {
+      margin-bottom: 4px;
+    }
+
+    .tag-list {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag-item {
+      font-size: 0.8rem;
+      background: #f1f5f9;
+      color: #34495e;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .project-link {
+      color: #1abc9c;
+      font-size: 0.9rem;
+      margin-left: 10px;
+    }
+    
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .skills-grid span {
+      background: #1abc9c; /* Old Template Skill Badge Background */
+      color: white;
+      padding: 8px 16px;
+      border-radius: 30px; /* Old Template Badge Style */
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .languages-list {
+      list-style: none;
+    }
+
+    .languages-list li {
+      margin-bottom: 8px;
+      color: #34495e;
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .contact-item i {
+      font-size: 1.3rem;
+      color: #1abc9c;
+      width: 25px;
+      text-align: center;
+    }
+
+    .contact-info p:first-child {
+      font-size: 0.85rem;
+      color: #7f8c8d;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .contact-info p:last-child {
+      font-size: 0.95rem;
+      color: #2c3e50;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      color: #1abc9c;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #2c3e50; /* Old Template Footer Background */
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      section { padding: 25px; }
+      nav a { margin: 0 8px; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+  <img src="IMG_5453.jpg" alt="HEAK SARETH">
+  <h1>HEAK SARETH</h1>
+  <p>Junior Software Developer | IT Student</p>
+  <a href="New cv.pdf" download class="cv-btn">
+    <i class="fa-solid fa-download"></i> Download CV
+  </a>
+</header>
+
+<!-- Navigation -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- Main Content Container -->
+<div class="container">
+
+  <!-- About Section -->
+  <section id="about">
+    <h2><i class="fa-solid fa-user"></i> About Me</h2>
+    <p>
+      Motivated Information Technology student with a strong interest in software
+      development and web technologies. Experienced in building academic and personal
+      projects using Java, Spring Boot, HTML, CSS, JavaScript, and Bootstrap.
+      Familiar with GitHub and eager to apply technical skills to real-world projects.
+    </p>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+    
+    <div class="timeline-item">
+      <div class="timeline-title">Prek Leap National School of Agriculture</div>
+      <div class="timeline-subtitle">Information Technology & Agricultural Engineering (2023 – Present)</div>
+      <div class="tag-list">
+        <span class="tag-item">IoT Technology</span>
+        <span class="tag-item">UI/UX Figma</span>
+        <span class="tag-item">HTML / CSS / Bootstrap</span>
+        <span class="tag-item">Programming</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-title">Hun Sen Krang Svay High School</div>
+      <div class="timeline-subtitle">Graduated (2023)</div>
+      <div class="timeline-desc">Academic Tracks: Grade 10B, 11C, 12C</div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2><i class="fa-solid fa-laptop-code"></i> Professional & Practical Experience</h2>
+    
+    <div class="timeline-item">
+      <div class="timeline-title">Academic Project Developer & Team Member</div>
+      <div class="timeline-subtitle">Prek Leap National School of Agriculture (2023 - Present)</div>
+      <div class="timeline-desc">
+        <ul>
+          <li>Collaborated effectively in team environments to design and develop responsive web templates.</li>
+          <li>Gained hands-on experience building structured RESTful APIs using Java and the Spring Boot framework.</li>
+          <li>Configured and managed MySQL database systems for academic projects, including a school library system.</li>
+          <li>Utilized Git and GitHub for version control, code management, and collaborative team workflows.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-title">Hands-on Technical Practice</div>
+      <div class="timeline-subtitle">Lab Sessions & Personal Development</div>
+      <div class="timeline-desc">
+        <ul>
+          <li>Practiced setting up small-scale local area networks (LANs) and provided basic IT support troubleshooting during laboratory sessions.</li>
+          <li>Designed user interface layouts and created interactive application prototypes using Figma (UI/UX).</li>
+          <li>Explored and integrated basic IoT (Internet of Things) devices and modules with control software.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2><i class="fa-solid fa-briefcase"></i> Key Projects</h2>
+    
+    <div class="timeline-item">
+      <div class="timeline-title">Library Management System</div>
+      <div class="timeline-desc">Developed a comprehensive system to manage books, users, and borrowing records using Java and MySQL.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-title">E-commerce Shoe Website</div>
+      <div class="timeline-desc">Built responsive frontend pages using HTML5, CSS3, JavaScript, and the Bootstrap framework.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-title">Backend Development Project</div>
+      <div class="timeline-desc">Created secure REST APIs and structured backend services using the Spring Boot framework.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-title">
+        Cafefinder Template 
+        <a href="https://github.com/YONN1225/CafeFinder.git" target="_blank" class="project-link">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+      <div class="timeline-desc">Developed a responsive, user-friendly website template for a local cafe using HTML, CSS, and vanilla JavaScript.</div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2><i class="fa-solid fa-code"></i> Technical Skills</h2>
+    <div class="skills-grid">
+      <span>Java</span>
+      <span>JavaScript</span>
+      <span>HTML5 / CSS3</span>
+      <span>Bootstrap</span>
+      <span>Spring Boot</span>
+      <span>MySQL</span>
+      <span>GitHub / Git</span>
+      <span>VS Code</span>
+      <span>IT Support</span>
+      <span>Networking</span>
+      <span>UI/UX Design (Figma)</span>
+      <span>IoT Technology</span>
+      <span>Microsoft Office</span>
+    </div>
+
+    <h3 style="font-size: 1.15rem; margin-top: 25px; margin-bottom: 15px; color: #2c3e50;">Languages</h3>
+    <ul class="languages-list">
+      <li><strong>Khmer:</strong> Native</li>
+      <li><strong>English:</strong> Intermediate</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2><i class="fa-solid fa-envelope"></i> Contact Me</h2>
+    <div class="contact-grid">
+      
+      <div class="contact-item">
+        <i class="fa-solid fa-phone"></i>
+        <div class="contact-info">
+          <p>Phone</p>
+          <p>086 856 535</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-envelope"></i>
+        <div class="contact-info">
+          <p>Email</p>
+          <p><a href="mailto:heaksarethmom@gmail.com">heaksarethmom@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-brands fa-github"></i>
+        <div class="contact-info">
+          <p>GitHub</p>
+          <p><a href="https://github.com/YONN1225/HEAK-SARETH" target="_blank">HEAK-SARETH</a></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-brands fa-telegram"></i>
+        <div class="contact-info">
+          <p>Telegram</p>
+          <p>086 856 535</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <div class="contact-info">
+          <p>Location</p>
+          <p>Chroy Changvar, Phnom Penh, Cambodia</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 HEAK SARETH | Portfolio Website</p>
+</footer>
+
+</body>
+</html>
